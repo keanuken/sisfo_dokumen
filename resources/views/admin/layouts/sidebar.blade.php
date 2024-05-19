@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('admin.') }}" class="brand-link">
+    <a href="{{ route('admin.dashboard') }}" class="brand-link">
         <div class="text-center">
             <img src="{{ asset('logo-kecil.png') }}" alt="Simadok Logo" class="brand-image">
             <span class="brand-text font-weight-bold">SIMADOK</span>
@@ -26,7 +26,6 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-book"></i>
@@ -69,6 +68,8 @@
                                         </div>
                                     </ul>
                                 </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -117,10 +118,11 @@
     <div class="sidebar-bottom p-2" style="position: absolute; bottom: 0; left: 0; width: 100%;">
         <ul class="nav flex-column">
             <li class="nav-item bg-danger rounded">
-                <a href="#" class="nav-link"
+                <a class="nav-link" href="{{ route('admin.logout') }}"
                     style="display: flex; justify-content: space-between; align-items: center; margin:3px 0 3px 0;">
                     <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
                     <span class="nav-text">Logout</span>
+                    @csrf
                 </a>
             </li>
         </ul>

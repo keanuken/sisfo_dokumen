@@ -49,7 +49,8 @@
                         <label>Role Akun</label>
                         <select id="role" class="js-states form-control" style="width: 100% !important">
                             <option></option>
-                            <option>Ketua Prodi</option>
+                            <option>Administrator</option>
+                            <option>Ketua Program Studi</option>
                             <option>Dosen</option>
                             <option>Mahasiswa</option>
                         </select>

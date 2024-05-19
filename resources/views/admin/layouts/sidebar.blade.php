@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-white-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('admin.') }}" class="brand-link">
         <div class="text-center">
@@ -27,7 +27,6 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-book"></i>
@@ -51,7 +50,6 @@
                                         <p>Visi Misi</p>
                                         <i class="fas fa-angle-left right"></i>
                                     </a>
-
                                     <ul class="nav nav-treeview">
                                         <div class="border-top border-bottom">
                                             <li class="nav-item">
@@ -71,122 +69,12 @@
                                         </div>
                                     </ul>
                                 </li>
-
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tata Panca</p>
                                         <i class="fas fa-angle-left right"></i>
                                     </a>
-
-                                    <ul class="nav nav-treeview">
-                                        <div class="border-top border-bottom">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Kebijakan</p>
-                                                </a>
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-file nav-icon"></i>
-                                <p>Akreditasi</p>
-                                <i class="fas fa-angle-left right"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Visi Misi</p>
-                                        <i class="fas fa-angle-left right"></i>
-                                    </a>
-
-                                    <ul class="nav nav-treeview">
-                                        <div class="border-top border-bottom">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Kebijakan</p>
-                                                </a>
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Standar</p>
-                                                </a>
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Surat Keterangan</p>
-                                                </a>
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tata Panca</p>
-                                        <i class="fas fa-angle-left right"></i>
-                                    </a>
-
-                                    <ul class="nav nav-treeview">
-                                        <div class="border-top border-bottom">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Kebijakan</p>
-                                                </a>
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-file nav-icon"></i>
-                                <p>Akreditasi</p>
-                                <i class="fas fa-angle-left right"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Visi Misi</p>
-                                        <i class="fas fa-angle-left right"></i>
-                                    </a>
-
-                                    <ul class="nav nav-treeview">
-                                        <div class="border-top border-bottom">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Kebijakan</p>
-                                                </a>
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Standar</p>
-                                                </a>
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Surat Keterangan</p>
-                                                </a>
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tata Panca</p>
-                                        <i class="fas fa-angle-left right"></i>
-                                    </a>
-
                                     <ul class="nav nav-treeview">
                                         <div class="border-top border-bottom">
                                             <li class="nav-item">
@@ -212,12 +100,6 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-user nav-icon"></i>
-                                <p>Lihat Akun</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('admin.tambah-user') }}" class="nav-link">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Tambah Akun</p>
@@ -230,4 +112,17 @@
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+
+    <!-- Logout Button -->
+    <div class="sidebar-bottom p-2" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+        <ul class="nav flex-column">
+            <li class="nav-item bg-danger rounded">
+                <a href="#" class="nav-link"
+                    style="display: flex; justify-content: space-between; align-items: center; margin:3px 0 3px 0;">
+                    <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="nav-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </aside>

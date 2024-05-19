@@ -20,7 +20,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
     Route::get('/tambah-akun', [AdminController::class, 'tambah'])->name('tambah-user');
 });
-
-Route::get('/', function () {
-    return view('admin.layouts.master');
-});

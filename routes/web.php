@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.layouts.master');
 });
+
+Route::get('/login', function () {
+    return view('admin.layouts.login');
+});
+
+//login
+Route::post('/post-login', [AuthController::class, 'postLogin']);
+Route::get('/logout', [AuthController::class, 'logout']);

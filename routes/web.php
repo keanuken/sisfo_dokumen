@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.layouts.master');
 });
+
+Route::get('/index', function () {
+    return view('index.blade.php');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});

@@ -19,12 +19,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session('')->regenerate();
-            // return redirect()->intended('home');
-            if (Auth::user()->level == 'seniman') {
-                return redirect()->intended('seniman');
-            } elseif (Auth::user()->level == 'user') {
-                return redirect()->intended('user');
-            }
+            return redirect()->intended('home');
         }
 
         return back()->withErrors([
@@ -40,17 +35,10 @@ class AuthController extends Controller
 
     public function showusername()
     {
-        if (Auth::user()->level == 'seniman') {
-            $userName = Auth::user()->name;
-            return "Nama pengguna yang sedang login: " . $userName;
-        } elseif (Auth::user()->level == 'user') {
+        if (Auth::check()) {
             $userName = Auth::user()->name;
             return "Nama pengguna yang sedang login: " . $userName;
         }
-        // if (Auth::check()) {
-        //     $userName = Auth::user()->name;
-        //     return "Nama pengguna yang sedang login: " . $userName;
-        // }
 
         return "Tidak ada pengguna yang login saat ini.";
     }

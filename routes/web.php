@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // fungsi logout akun
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('/login', function () {
+    return view('admin.layouts.login');
+});
+
+Route::get('/home', function () {
+    return view('admin.layouts.home');
+});
+
+//login
+Route::post('/post-login', [AuthController::class, 'postLogin'])->name('post-login');
+Route::get('/logout', [AuthController::class, 'logout']);

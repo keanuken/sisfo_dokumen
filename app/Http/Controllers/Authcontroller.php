@@ -9,37 +9,15 @@ use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
 {
-    //
-    public function postLogin(Request $request): RedirectResponse
+    public function postLogin(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required'],
-            'password' => ['required'],
-        ]);
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session('')->regenerate();
-            return redirect()->intended('home');
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
+            // Authentication passed...
+            return redirect()->intended('dashboard'); // Change 'dashboard' to your desired redirect route
+        } else {
+            return redirect()->back()->withErrors(['Invalid credentials']);
         }
-
-        return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ])->onlyInput('username');
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('login');
-    }
-
-    public function showusername()
-    {
-        if (Auth::check()) {
-            $userName = Auth::user()->name;
-            return "Nama pengguna yang sedang login: " . $userName;
-        }
-
-        return "Tidak ada pengguna yang login saat ini.";
     }
 }

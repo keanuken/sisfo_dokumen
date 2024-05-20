@@ -28,6 +28,7 @@
           <input type="checkbox" class="rectangle-3" >
           <div class="frame-2"><div class="text-wrapper-3">Remember me</div></div>
         </div>
+        </form>
         <div class="navbar">
           <div class="frame-3"></div>
           <div class="group-wrapper"><img class="group-2" src="assets/group-3-2.png" /></div>

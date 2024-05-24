@@ -3,18 +3,18 @@
 
 @include('admin.layouts.header')
 
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+<body class="sidebar-mini layout-fixed">
+    <div class="wrapper h-auto">
         <!-- Navbar -->
         @include('admin.layouts.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('admin.layouts.sidebar')
-        {{-- end sidebar --}}
+        {{-- @include('admin.layouts.sidebar') --}}
+        <!-- end sidebar -->
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper h-auto">
             @yield('content')
         </div>
         <!-- /.content-wrapper -->

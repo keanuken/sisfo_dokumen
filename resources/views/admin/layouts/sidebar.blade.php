@@ -27,72 +27,64 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-book"></i>
-                        <p>
-                            Dokumen
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                    <a href="#" class="nav-link d-flex flex-col align-items-center">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Dokumen</p>
+                        <i class="fas fa-angle-left right"></i>
                     </a>
-                    {{-- root --}}
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-file nav-icon"></i>
-                                <p>Akreditasi</p>
+                            <a class="nav-link d-flex flex-col align-items-center">
+                                <i class="nav-icon fa fa-plus"></i>
+                                <p>
+                                    Tambah Dokumen
+                                </p>
                                 <i class="fas fa-angle-left right"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Visi Misi</p>
-                                        <i class="fas fa-angle-left right"></i>
+                                    <a href="{{ route('admin.dokumen-prodi') }}"
+                                        class="nav-link d-flex flex-col align-items-center">
+                                        <i class="nav-icon fas fa-school"></i>
+                                        <p>Program Studi</p>
                                     </a>
-                                    <ul class="nav nav-treeview">
-                                        <div class="border-top border-bottom">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Kebijakan</p>
-                                                </a>
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Standar</p>
-                                                </a>
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Surat Keterangan</p>
-                                                </a>
-                                            </li>
-                                        </div>
-                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.dokumen-himpunan') }}"
+                                        class="nav-link d-flex flex-col align-items-center">
+                                        <i class="nav-icon fas fa-flag"></i>
+                                        <p>Himpunan</p>
+                                    </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex flex-col align-items-center">
+                                <i class="nav-icon fa fa-circle"></i>
+                                <p>Kelola Dokumen</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tata Panca</p>
-                                        <i class="fas fa-angle-left right"></i>
+                                    <a href="{{ route('admin.dokumen.prodi') }}"
+                                        class="nav-link d-flex flex-col align-items-center">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>Dokumen Prodi</p>
                                     </a>
-                                    <ul class="nav nav-treeview">
-                                        <div class="border-top border-bottom">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    <i class="fa fa-circle nav-icon"></i>
-                                                    <p>Kebijakan</p>
-                                                </a>
-                                            </li>
-                                        </div>
-                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.dokumen.himpunan') }}"
+                                        class="nav-link d-flex flex-col align-items-center">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>Dokumen Himpunan</p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a class="nav-link d-flex flex-col align-items-center">
                         <i class="nav-icon fa fa-cogs"></i>
                         <p>
                             Kelola Akun
@@ -101,7 +93,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.tambah-user') }}" class="nav-link">
+                            <a href="{{ route('admin.tambah-user') }}"
+                                class="nav-link d-flex flex-col align-items-center">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Tambah Akun</p>
                             </a>

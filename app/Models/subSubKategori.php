@@ -9,8 +9,10 @@ class subSubKategori extends Model
 {
     use HasFactory;
 
+    protected $table = 'table_sub_sub_kategori';
+
     public function sub_kategori()
     {
-        return $this->hasOne(User::class, 'id_subKategori', 'table_sub_kategori');
+        return $this->belongsTo(subKategori::class, 'id_subKategori', 'table_sub_kategori');
     }
 }

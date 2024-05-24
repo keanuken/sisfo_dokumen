@@ -23,7 +23,15 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                Auth::logout(); // fungsi untuk logout user
+                $request->session()->invalidate(); //menghapus session
+
+                return response()->json([
+                    'message' => 'UPS. MOHON MAAF ANDA TIDAK BISA MENGAKSES HALAMAN INI SEBELUM LOGIN. SILAHKAN REFRESH HALAMAN UNTUK KEMBALI :)'
+                ], 403);
+
+                return redirect('/admin/login');
             }
         }
 

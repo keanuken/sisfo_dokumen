@@ -10,6 +10,7 @@ class document extends Model
     use HasFactory;
 
     protected $table = 'table_document';
+    protected $primaryKey = 'id_dokumen';
 
     protected $fillable = [
         'id_subKategori',

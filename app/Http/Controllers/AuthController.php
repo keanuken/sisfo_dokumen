@@ -53,10 +53,9 @@ class AuthController extends Controller
             // return redirect()->intended('admin');
             if (Auth::user()->roles == 'administrator' || Auth::user()->roles == 'kaprodi') {
                 return redirect()->intended('admin/dashboard');
+            } elseif (Auth::user()->roles == 'mahasiswa') {
+                return redirect()->intended('himpunan/dashboard');
             }
-            // elseif (Auth::user()->level == 'dosen' && 'mahasiswa') {
-            //     return redirect()->intended('admin/dashboard');
-            // }
         }
 
         // if (Auth::attempt($credentials)) {

@@ -49,6 +49,11 @@
             <div class="card-header mb-3">
                 <h3 class="card-title">Data Dokumen</h3>
             </div>
+            @if (session('error'))
+                <div class="alert alert-danger my-2 text-bold">
+                    {{ session('error') }}
+                </div>
+            @endif
             <!-- /.card-header -->
             <table id="example" class="table table-responsive table-striped bg-info" style="width:100%">
                 <thead>
@@ -68,6 +73,7 @@
                     @foreach ($document as $doc)
                         <tr>
                             <td class="text-center"></td>
+                            <td class="d-none">{{ $doc->id_document }}</td>
                             <td class="text-center">{{ $doc->nama_dokumen }}</td>
                             <td class="text-center">{{ $doc->judul_dokumen }}</td>
                             <td class="text-center">{{ $doc->nama_kategori }}</td>
@@ -79,14 +85,21 @@
                                     <i class="fas fa-eye text-white"></i>
                                 </a>
                             </td>
-                            <td class="d-flex flex-col justify-content-between">
-                                <a href="#" class="btn btn-warning">
-                                    <i class="fas fa-pen text-white"></i>
-                                </a>
-                                <a href="#" class="btn btn-warning">
-                                    <i class="fas fa-trash text-white"></i>
-                                </a>
-                            </td>
+                            <form action="{{ route('admin.dokumen.delete', $doc->id_dokumen) }}" method="post">
+                                <td class="d-flex flex-col justify-content-between">
+                                    <a href="{{ route('admin.dokumen.edit', $doc->id_dokumen) }}" class="btn btn-warning">
+                                        <i class="fas fa-pen text-white"></i>
+                                    </a>
+
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit"
+                                        onclick="return confirm('Apakah anda yakin menghapus {{ $doc->nama_dokumen }}?')"
+                                        class="btn btn-danger">
+                                        <i class="fas fa-trash text-white"></i>
+                                    </button>
+                                </td>
+                            </form>
                         </tr>
                     @endforeach
                 </tbody>

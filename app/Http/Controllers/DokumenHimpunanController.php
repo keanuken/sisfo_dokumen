@@ -2,42 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\document;
-use App\Models\kategori;
+use Illuminate\Http\Request;
 use App\Models\subKategori;
 use App\Models\subSubKategori;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use App\Models\document;
 
-class DokumenAdminController extends Controller
+class DokumenHimpunanController extends Controller
 {
-    public function prodi()
-    {
-        // $subKategori = subKategori::all();
-        $subKategori = subKategori::join(
-            'table_kategori as kat',
-            'table_sub_kategori.id_kategori',
-            '=',
-            'kat.id_kategori'
-        )
-            ->where('table_sub_kategori.id_kategori', 2)
-            ->get();
-        $subSubKategori = subSubKategori::join(
-            'table_sub_kategori as sub',
-            'table_sub_sub_kategori.id_subKategori',
-            '=',
-            'sub.id_subKategori'
-        )
-            ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 2)
-            ->get();
-
-        return view(
-            "admin.dokumen-prodi",
-            compact("subKategori", "subSubKategori")
-        );
-    }
-
     public function himpunan()
     {
         $subKategori = subKategori::join(
@@ -58,7 +29,7 @@ class DokumenAdminController extends Controller
             ->where('kat.id_kategori', 1)
             ->get();
         return view(
-            "admin.dokumen-himpunan",
+            "himpunan.dokumen-himpunan",
             compact("subKategori", "subSubKategori")
         );
     }
@@ -72,21 +43,7 @@ class DokumenAdminController extends Controller
             ->get();
         // dd($document);
         return view(
-            "admin.dokumenHimpunan.index",
-            compact("document")
-        );
-    }
-
-    public function index_dokumenProdi()
-    {
-        $document = document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
-            ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
-            ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 2)
-            ->get();
-        // dd($document);
-        return view(
-            "admin.dokumenProdi.index",
+            "himpunan.dokumenHimpunan.index",
             compact("document")
         );
     }
@@ -149,7 +106,7 @@ class DokumenAdminController extends Controller
     {
         $document = document::find($id_dokumen);
         // dd($document);
-        return view('admin.dokumenEdit', compact('document'));
+        return view('himpunan.dokumenEdit', compact('document'));
     }
 
     public function updateDokumen($id_dokumen, Request $request)

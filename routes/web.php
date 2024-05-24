@@ -89,3 +89,4 @@ Route::prefix('himpunan')->name('himpunan.')->group(function () {
         Route::delete('/{id_dokumen}/delete', [DokumenHimpunanController::class, 'deleteDokumen'])->name('delete');
     });
 });
+

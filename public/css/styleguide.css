@@ -1,0 +1,12 @@
+:root {
+  --primary-color: rgba(244, 157, 27, 1);
+  --black-color: rgba(40, 40, 40, 1);
+  --icon-color: rgba(60, 90, 147, 1);
+  --secondary-color: rgba(255, 241, 220, 1);
+  --typography-font-family: "Poppins", Helvetica;
+  --typography-font-weight: 400;
+  --typography-font-size: 16px;
+  --typography-letter-spacing: 0.5px;
+  --typography-line-height: 24px;
+  --typography-font-style: normal;
+}

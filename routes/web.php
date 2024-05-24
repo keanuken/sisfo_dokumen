@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+
 
 
 /*
@@ -51,3 +51,7 @@ Route::get('/home', function () {
 //login
 Route::post('/post-login', [AuthController::class, 'postLogin'])->name('post-login');
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/home', function () {
+    return view('home');
+});

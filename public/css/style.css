@@ -330,3 +330,30 @@ a {
   width: 7px;
   height: 5px;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* fina */
+/* Styling for the container div */
+/* primary color: #f49d1b */
+
+
+.action_btn > a:nth-child(2) {
+    color: rgb(248, 29, 29);
+}
+
+.dt-paging .dt-paging-button.page-item.active a {
+    background-color: #f49d1b;
+    border-color: #f49d1b;
+}
+
+/* .dt-container .row.mt-2.justify-content-md-center  */
+.dt-orderable-desc {
+    background-color: #f49d1b !important;
+}
+
+/* fina end */

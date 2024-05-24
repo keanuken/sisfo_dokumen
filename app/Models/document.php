@@ -9,8 +9,21 @@ class document extends Model
 {
     use HasFactory;
 
+    protected $table = 'table_document';
+
+    protected $fillable = [
+        'id_subKategori',
+        'id_subSubKategori',
+        'nama_dokumen',
+        'judul_dokumen',
+        'versi_dokumen',
+        'tautan_dokumen',
+        'status',
+        'image_preview'
+    ];
+
     public function subSubKategori()
     {
-        return $this->hasOne(User::class, 'id_subSubKategori', 'table_sub_sub_kategori');
+        return $this->belongsTo(subSubKategori::class, 'id_subSubKategori', 'table_sub_sub_kategori');
     }
 }

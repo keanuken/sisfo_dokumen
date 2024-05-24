@@ -9,6 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 @endsection
 
+@include('admin.layouts.sidebar')
+
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
@@ -35,6 +37,7 @@
             <!-- form start -->
             <form action="store-register" method="POST">
                 @csrf
+                {{-- alert --}}
                 @if (session('success'))
                     <div class="alert alert-success my-2 text-bold">
                         {{ session('success') }}
@@ -45,6 +48,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
+                {{-- end alert --}}
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Nama</label>
@@ -67,6 +71,7 @@
                                 </button>
                             </div>
                         </div>
+                        <p class="text-info">*harap memasukkan password minimal 8 karakter</p>
                     </div>
 
                     <div class="form-group">

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_subSubKategori')->nullable();
             $table->string('nama_dokumen');
             $table->string('judul_dokumen');
-            $table->integer('versi_dokumen')->unique();
+            $table->integer('versi_dokumen');
             $table->string('tautan_dokumen');
-            $table->string('image_preview');
+            $table->string('image_preview')->nullable();
             $table->string('status');
             $table->timestamps();
 

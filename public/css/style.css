@@ -555,9 +555,18 @@ a {
   white-space: nowrap;
 }
 .desktop .primary-button-2:hover {
-  background-color: var(--primary-color); /* Change the background color on hover */
-  border-color: var(--secondary-color); /* Change the border color on hover */
-  cursor: pointer;
+  
+  position: relative;
+  width: fit-content;
+  margin-top: -1.2px;
+  margin-bottom: -0.8px;
+  font-family: "Roboto-Light", Helvetica;
+  font-weight: 300;
+  color: var(--primary-color);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  white-space: nowrap;
 }
 
 .desktop .rectangle {
@@ -670,11 +679,10 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--neutral-0);
+  background-color: #fff;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-color: var(--neutral-2);
-  box-shadow: 0px 6px 22.9px #1e1e1e2b;
+  
 }
 
 .desktop .img {

@@ -17,6 +17,13 @@ use App\Http\Controllers\DokumenHimpunanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', function () {
+    return view('home');
+});
+Route::get('/login', function () {
+    return view('login');
+});
+
 // PREFIX ADMIN
 Route::prefix('admin')->name('admin.')->group(function () {
     // view home
@@ -24,9 +31,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.home-admin');
     })->name('home');
 
-    Route::get('/home', function () {
-        return view('home');
-    });
+    
 
     // view dashboard admin
     //fungsi middleware untuk restricted page harus login

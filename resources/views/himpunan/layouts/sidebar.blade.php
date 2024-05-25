@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('admin.dashboard') }}" class="brand-link">
+    <a href="{{ route('himpunan.dashboard') }}" class="brand-link">
         <div class="text-center">
             <img src="{{ asset('logo-kecil.png') }}" alt="Simadok Logo" class="brand-image">
             <span class="brand-text font-weight-bold">SIMADOK</span>
@@ -43,14 +43,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.dokumen-prodi') }}"
-                                        class="nav-link d-flex flex-col align-items-center">
-                                        <i class="nav-icon fas fa-school"></i>
-                                        <p>Program Studi</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.dokumen-himpunan') }}"
+                                    <a href="{{ route('himpunan.dokumen-himpunan') }}"
                                         class="nav-link d-flex flex-col align-items-center">
                                         <i class="nav-icon fas fa-flag"></i>
                                         <p>Himpunan</p>
@@ -66,38 +59,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.dokumen.prodi') }}"
-                                        class="nav-link d-flex flex-col align-items-center">
-                                        <i class="nav-icon far fa-circle"></i>
-                                        <p>Dokumen Prodi</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.dokumen.himpunan') }}"
+                                    <a href="{{ route('himpunan.dokumen.himpunan') }}"
                                         class="nav-link d-flex flex-col align-items-center">
                                         <i class="nav-icon far fa-circle"></i>
                                         <p>Dokumen Himpunan</p>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex flex-col align-items-center">
-                        <i class="nav-icon fa fa-cogs"></i>
-                        <p>
-                            Kelola Akun
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.tambah-user') }}"
-                                class="nav-link d-flex flex-col align-items-center">
-                                <i class="fa fa-plus nav-icon"></i>
-                                <p>Tambah Akun</p>
-                            </a>
                         </li>
                     </ul>
                 </li>

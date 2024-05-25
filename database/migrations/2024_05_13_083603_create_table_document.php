@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('table_document', function (Blueprint $table) {
             $table->id('id_dokumen');
-            $table->unsignedBigInteger('id_subSubKategori');
+            $table->unsignedBigInteger('id_subSubKategori')->nullable();
             $table->string('nama_dokumen');
             $table->string('judul_dokumen');
-            $table->integer('versi_dokumen')->unique();
+            $table->integer('versi_dokumen');
             $table->string('tautan_dokumen');
-            $table->string('image_preview');
+            $table->string('image_preview')->nullable();
             $table->string('status');
             $table->timestamps();
 

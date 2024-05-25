@@ -24,6 +24,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.home-admin');
     })->name('home');
 
+    Route::get('/home', function () {
+        return view('home');
+    });
+
     // view dashboard admin
     //fungsi middleware untuk restricted page harus login
     Route::get('/dashboard', function () {

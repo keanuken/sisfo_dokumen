@@ -18,6 +18,7 @@ use App\Http\Controllers\DokumenHimpunanController;
 |
 */
 // PREFIX ADMIN
+
 Route::prefix('admin')->name('admin.')->group(function () {
     // view home
     Route::get('/', function () {
@@ -54,7 +55,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.login');
     })->name('login')->middleware('guest');
 
-    //fungsi post register akun
+        //fungsi post register akun
     Route::post('/store-register', [RegisterController::class, 'store']);
 
     // fungsi post login akun

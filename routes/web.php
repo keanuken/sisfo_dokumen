@@ -52,6 +52,7 @@ Route::get('/home', function () {
 Route::post('/post-login', [AuthController::class, 'postLogin'])->name('post-login');
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/home', function () {
-    return view('home');
+//footer
+Route::get('/footer', function () {
+    return view('footer');
 });

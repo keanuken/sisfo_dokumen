@@ -17,6 +17,7 @@ use App\Http\Controllers\DokumenHimpunanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/home', function () {
     return view('home');
 });
@@ -31,7 +32,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.home-admin');
     })->name('home');
 
-    
+
 
     // view dashboard admin
     //fungsi middleware untuk restricted page harus login
@@ -98,5 +99,12 @@ Route::prefix('himpunan')->name('himpunan.')->group(function () {
         Route::put('/{id_dokumen}/update', [DokumenHimpunanController::class, 'updateDokumen'])->name('update');
         Route::delete('/{id_dokumen}/delete', [DokumenHimpunanController::class, 'deleteDokumen'])->name('delete');
     });
-});
 
+    // view login himpunan
+    Route::get('/login', function () {
+        return view('himpunan.login');
+    })->name('login')->middleware('guest');
+
+    // fungsi logout akun
+    Route::get('/logout', [AuthController::class, 'logoutHimpunan'])->name('logoutHimpunan');
+});

@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<link rel="stylesheet" href="css/styleguide.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/global .css"/>
+<link rel="stylesheet" href="css/style_footer.css"/>
+
 @section('title', 'Login Administrator')
 @include('admin.layouts.header')
+
+@include('component.header-home')
 
 <body>
     <div class="container-fluid bg">
@@ -40,4 +47,5 @@
     </div>
 </body>
 
+@include('component.footer-home')
 </html>

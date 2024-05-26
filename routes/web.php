@@ -17,6 +17,16 @@ use App\Http\Controllers\DokumenHimpunanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< Updated upstream
+=======
+Route::get('/home', function () {
+    return view('home');
+});
+Route::get('/login', function () {
+    return view('login');
+})->name('login')->middleware('guest');
+
+>>>>>>> Stashed changes
 // PREFIX ADMIN
 
 Route::prefix('admin')->name('admin.')->group(function () {

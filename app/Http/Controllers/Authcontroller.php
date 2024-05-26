@@ -27,7 +27,6 @@ class AuthController extends Controller
                 return redirect()->intended('himpunan/dashboard');
             }
         }
-        
         return back()->withErrors([
             'email' => 'Email atau password anda salah.',
         ])->onlyInput('email');

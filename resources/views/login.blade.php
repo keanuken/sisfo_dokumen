@@ -24,7 +24,7 @@
             <img class="img" src="assets/group-3-2.png" />
             <div class="frame"><div class="text-wrapper-2">Email</div></div>
             <div class="div-wrapper"><div class="text-wrapper-2">Password</div></div>
-            <input class="rectangle" input type="email" id="email" name="email"></input>
+            <input class="rectangle" input type="email" id="email" name="email" autocomplete="off"></input>
             <input class="rectangle-2" type="password" name="password"></input>
             <input type="checkbox" class="rectangle-3" >
             <div class="frame-2"><div class="text-wrapper-3">Remember me</div></div>

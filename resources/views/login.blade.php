@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <link rel="stylesheet" href="css/styleguide.css"/>
-<link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/global .css"/>
-<link rel="stylesheet" href="css/style_footer.css"/>
+<link rel="stylesheet" href="css/style_login.css"/>
 
 @section('title', 'Login Administrator')
 @include('admin.layouts.header')
 
-@include('component.header-home')
-
 <body>
-    <div class="container-fluid bg">
-        <div class="form">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="login-form">
-                        <h1>TEST LOGIN</h1>
-                        <p>Log in to your account with your email <br> and password.</p>
-                        <form action="post-login" method="POST">
-                            {{ csrf_field() }}
-                            @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    @foreach ($errors->all() as $error)
-                                        {{ $error }} <br />
-                                    @endforeach
-                                </div>
-                            @endif
-                            <div class="field-group">
-                                <input type="email" id="email" name="email" class="input-field"
-                                    aria-describedby="email" placeholder="Email address" autocomplete="off">
-                            </div>
-                            <div class="field-group my-5">
-                                <input type="password" id="password" name="password" class="input-field"
-                                    aria-describedby="password" placeholder="Password">
-                            </div>
-                            <div class="form-button d-flex align-items-center">
-                                <button type="submit" class="btn btn-primary btn-submit">Log In</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <div class="element">
+      <div class="div">
+        <img class="group" src="assets/group-3.png" />
+        <div class="overlap-group">
+          <form action="{{ route('admin.postLogin') }}" method="POST">
+              {{ csrf_field() }}
+              @if (count($errors) > 0)
+                  <div class="alert alert-danger">
+                      @foreach ($errors->all() as $error)
+                          {{ $error }} <br />
+                      @endforeach
+                  </div>
+              @endif
+            <button type="submit" class="primary-button">Masuk</button>
+            <img class="img" src="assets/group-3-2.png" />
+            <div class="frame"><div class="text-wrapper-2">Email</div></div>
+            <div class="div-wrapper"><div class="text-wrapper-2">Password</div></div>
+            <input class="rectangle" input type="email" id="email" name="email"></input>
+            <input class="rectangle-2" type="password" name="password"></input>
+            <input type="checkbox" class="rectangle-3" >
+            <div class="frame-2"><div class="text-wrapper-3">Remember me</div></div>
             </div>
+          </form>
+        {{-- belum navbar yg fix --}}
+        <div class="navbar">
+          <div class="frame-3"></div>
+          <div class="group-wrapper"><img class="group-2" src="assets/group-3-2.png" /></div>
+          <div class="navbar-2">
+          <div class="text-wrapper-4">Beranda</div>
+          <div class="text-wrapper-4">Profil</div>
+          <div class="text-wrapper-4">Layanan</div>
+          <div class="text-wrapper-4">Dokumen</div>
+          <img class="vector" src="asset/vector-1.svg" />
+          </div>
+          {{-- belum footer yg fix --}}
+          <img class="vector-2" src="asset/vector-1.svg" />
         </div>
+      </div>
     </div>
-</body>
+  </body>
 
-@include('component.footer-home')
 </html>

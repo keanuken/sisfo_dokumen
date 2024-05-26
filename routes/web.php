@@ -17,26 +17,14 @@ use App\Http\Controllers\DokumenHimpunanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> a326243a873efbef25281e8e5067d88c5c563005
 Route::get('/home', function () {
     return view('home');
 });
 Route::get('/login', function () {
     return view('login');
-<<<<<<< HEAD
-})->name('login')->middleware('guest');
-
->>>>>>> Stashed changes
-=======
 });
 
->>>>>>> a326243a873efbef25281e8e5067d88c5c563005
 // PREFIX ADMIN
-
 Route::prefix('admin')->name('admin.')->group(function () {
     // view home
     Route::get('/', function () {
@@ -75,11 +63,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.login');
     })->name('login')->middleware('guest');
 
-        //fungsi post register akun
+    //fungsi post register akun
     Route::post('/store-register', [RegisterController::class, 'store']);
 
     // fungsi post login akun
-    Route::post('/post-login', [AuthController::class, 'postLogin']);
+    Route::post('/post-login', [AuthController::class, 'postLogin'])->name('postLogin');
+
 
     // fungsi logout akun
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

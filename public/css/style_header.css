@@ -1,0 +1,15 @@
+.desktop .header {
+    display: flex;
+    width: 1440px;
+    height: 90px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 98px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    
+  }

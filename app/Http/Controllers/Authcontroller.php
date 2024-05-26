@@ -16,6 +16,16 @@ class AuthController extends Controller
             'email' => ['required'],
             'password' => ['required'],
         ]);
+        if (Auth::attempt($credentials)) {
+            // $request->session('')->regenerate();
+
+            // return redirect()->intended('admin');
+            if (Auth::user()->roles == 'administrator' || Auth::user()->roles == 'kaprodi') {
+                return redirect()->intended('admin/dashboard');
+            } elseif (Auth::user()->roles == 'mahasiswa') {
+                return redirect()->intended('himpunan/dashboard');
+            }
+        }
 
         if (Auth::attempt($credentials)) {
             // $request->session('')->regenerate();
@@ -27,6 +37,7 @@ class AuthController extends Controller
                 return redirect()->intended('himpunan/dashboard');
             }
         }
+
         return back()->withErrors([
             'email' => 'Email atau password anda salah.',
         ])->onlyInput('email');

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 <!-- Footer Section -->     
-=======
-<!-- Footer Section -->
-            
->>>>>>> a326243a873efbef25281e8e5067d88c5c563005
 <footer class="footer">
                 
     <div class="footer-content">

@@ -17,16 +17,24 @@ use App\Http\Controllers\DokumenHimpunanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> a326243a873efbef25281e8e5067d88c5c563005
 Route::get('/home', function () {
     return view('home');
 });
 Route::get('/login', function () {
     return view('login');
+<<<<<<< HEAD
 })->name('login')->middleware('guest');
 
 >>>>>>> Stashed changes
+=======
+});
+
+>>>>>>> a326243a873efbef25281e8e5067d88c5c563005
 // PREFIX ADMIN
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -34,6 +42,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function () {
         return view('admin.home-admin');
     })->name('home');
+
+    
 
     // view dashboard admin
     //fungsi middleware untuk restricted page harus login

@@ -79,7 +79,7 @@
     <div class="sidebar-bottom p-2" style="position: absolute; bottom: 0; left: 0; width: 100%;">
         <ul class="nav flex-column">
             <li class="nav-item bg-danger rounded">
-                <a class="nav-link" href="{{ route('admin.logout') }}"
+                <a class="nav-link" href="{{ route('himpunan.logoutHimpunan') }}"
                     style="display: flex; justify-content: space-between; align-items: center; margin:3px 0 3px 0;">
                     <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
                     <span class="nav-text">Logout</span>

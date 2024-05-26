@@ -81,6 +81,12 @@ class AuthController extends Controller
         return redirect('admin/login');
     }
 
+    public function logoutHimpunan()
+    {
+        Auth::logout();
+        return redirect('himpunan/login');
+    }
+
     public function showusername()
     {
         if (Auth::check()) {

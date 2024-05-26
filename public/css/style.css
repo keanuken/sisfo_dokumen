@@ -560,9 +560,9 @@ a {
   width: fit-content;
   margin-top: -1.2px;
   margin-bottom: -0.8px;
-  font-family: "Roboto-Light", Helvetica;
+  font-family: "Roboto";
   font-weight: 300;
-  color: var(--primary-color);
+  color: #f2f2f2;
   font-size: 13px;
   letter-spacing: 0.5px;
   line-height: 24px;
@@ -736,6 +736,10 @@ a {
   border-radius: 20px;
   overflow: hidden;
 }
+.desktop .group-wrapper:hover {
+  background-color: #e0a53b; /* Change to a darker shade or a different color */
+  transform: scale(1.05); /* Slightly enlarge the element on hover */
+}
 
 .desktop .group-2 {
   position: relative;
@@ -774,18 +778,18 @@ a {
   transition: background-color 0.3s, transform 0.3s;
   text-decoration: none;
 }
-.text-wrapper-5:hover, .text-wrapper-6:hover, .text-wrapper-7:hover, .text-wrapper-8:hover {
-  background-color: #d7d88f;
+.text-wrapper-5:hover, .text-wrapper-6:hover, .text-wrapper-8:hover {
+  background-color: #fff;
   transform: scale(1.05);
 }
 @media (max-width: 768px) {
-  .text-wrapper-5, .text-wrapper-6, .text-wrapper-7, .text-wrapper-8 {
+  .text-wrapper-5, .text-wrapper-6, .text-wrapper-8 {
     padding: 0.75em 1.5em;
     font-size: 0.875rem;
   }
 }
 @media (max-width: 480px) {
-  .text-wrapper-5, .text-wrapper-6, .text-wrapper-7, .text-wrapper-8 {
+  .text-wrapper-5, .text-wrapper-6, .text-wrapper-8 {
     padding: 0.625em 1.25em; 
     font-size: 0.75rem;
   }

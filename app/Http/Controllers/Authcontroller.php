@@ -56,6 +56,9 @@ class AuthController extends Controller
             } elseif (Auth::user()->roles == 'mahasiswa') {
                 return redirect()->intended('himpunan/dashboard');
             }
+             elseif (Auth::user()->roles == 'dosen') {
+                return redirect()->intended('dosen/dashboard');
+            }
         }
 
         // if (Auth::attempt($credentials)) {
@@ -79,6 +82,18 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect('admin/login');
+    }
+
+    public function logoutHimpunan()
+    {
+        Auth::logout();
+        return redirect('himpunan/login');
+    }
+
+    public function logoutDosen()
+    {
+        Auth::logout();
+        return redirect('dosen/login');
     }
 
     public function showusername()

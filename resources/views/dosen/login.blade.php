@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/styleguide.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/style_login.css') }}" />
 
-@section('title', 'Login Himpunan')
+@section('title', 'Login Administrator')
 @include('admin.layouts.header')
 
 <body>

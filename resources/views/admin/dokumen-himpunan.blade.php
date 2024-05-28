@@ -128,6 +128,8 @@
 
                     <div class="form-group">
                         <label for="tautan">Tautan Dokumen <span class="text-danger">*</span></label>
+                        <p class="text-info">*masukkan tautan atau link dokumen tanpa https:// <br>(contoh:
+                            drive.google.com/abcd)</p>
                         <input type="text" class="form-control" name="tautan" placeholder="Masukkan tautan dokumen">
                     </div>
 

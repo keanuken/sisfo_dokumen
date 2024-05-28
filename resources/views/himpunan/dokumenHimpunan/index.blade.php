@@ -25,8 +25,6 @@
     </style>
 @endsection
 
-@include('himpunan.layouts.sidebar')
-
 @section('content')
     <section class="content-header">
         <div class="container-fluid">

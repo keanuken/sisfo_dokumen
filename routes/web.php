@@ -23,12 +23,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/card', [HomeController::class, 'card'])->name('card');
-
-Route::get('/table', [HomeController::class, 'index_dokumenProdi'])->name('table');
-
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/home2', function () {
+    return view('home2');
 });
 
 // PREFIX ADMIN
@@ -114,4 +114,38 @@ Route::prefix('himpunan')->name('himpunan.')->group(function () {
 
     // fungsi logout akun
     Route::get('/logout', [AuthController::class, 'logoutHimpunan'])->name('logoutHimpunan');
+});
+
+
+// PREFIX DOSEN
+Route::prefix('dosen')->name('dosen.')->group(function () {
+    // view dashboard himpunan
+    //fungsi middleware untuk restricted page harus login
+    Route::get('/dashboard', function () {
+        return view('dosen.dashboard');
+    })->name('dashboard')->middleware('auth', 'roleCheck:dosen');
+
+    //view tambah dokumen
+    Route::get('/add/dokumen/himpunan', [DokumenHimpunanController::class, 'himpunan'])->name('dokumen-himpunan');
+
+    // fungsi store dokumen
+    Route::post('/store-dokumen', [
+        DokumenHimpunanController::class, 'store_dokumen'
+    ])->name('store-dokumen');
+
+    // view dokumen group
+    Route::prefix('dokumen')->name('dokumen.')->group(function () {
+        Route::get('/', [DokumenHimpunanController::class, 'index_dokumenHimpunan'])->name('himpunan');
+        Route::get('/{id_dokumen}/edit', [DokumenHimpunanController::class, 'editDokumen'])->name('edit');
+        Route::put('/{id_dokumen}/update', [DokumenHimpunanController::class, 'updateDokumen'])->name('update');
+        Route::delete('/{id_dokumen}/delete', [DokumenHimpunanController::class, 'deleteDokumen'])->name('delete');
+    });
+
+    // view login dosen
+    Route::get('/login', function () {
+        return view('dosen.login');
+    })->name('login')->middleware('guest');
+
+    // fungsi logout akun
+    Route::get('/logout', [AuthController::class, 'logoutDosen'])->name('logoutDosen');
 });

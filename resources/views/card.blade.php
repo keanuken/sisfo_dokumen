@@ -23,7 +23,7 @@
         <div class="d-flex flex-cols justify-content-center gap-5 mx-auto">
             @foreach ($subKategoriProdi as $prodi)
                 <div class="card" style="width: 18rem;">
-                    <div class="card-img-top bg-warning d-flex justify-content-center align-items-center"
+                    <div class="card-img-top bg-info d-flex justify-content-center align-items-center"
                         style="height: 10em">
                         <h1><i class="fa fa-file"></i></h1>
                     </div>
@@ -39,7 +39,7 @@
         <div class="d-flex flex-cols justify-content-center gap-5 mx-auto">
             @foreach ($subKategoriHimpunan as $himpunan)
                 <div class="card" style="width: 18rem;">
-                    <div class="card-img-top bg-warning d-flex justify-content-center align-items-center"
+                    <div class="card-img-top bg-info d-flex justify-content-center align-items-center"
                         style="height: 10em">
                         <h1><i class="fa fa-file"></i></h1>
                     </div>

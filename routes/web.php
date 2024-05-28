@@ -25,6 +25,8 @@ Route::get('/', function () {
 
 Route::get('/card', [HomeController::class, 'card'])->name('card');
 
+Route::get('/table', [HomeController::class, 'index_dokumenProdi'])->name('table');
+
 Route::get('/login', function () {
     return view('login');
 });

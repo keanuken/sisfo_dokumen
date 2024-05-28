@@ -168,4 +168,11 @@ class DokumenHimpunanController extends Controller
         $q->delete($request->all());
         return redirect()->back()->with("error", "Dokumen berhasil dihapus.");
     }
+
+    public function detail($id_dokumen)
+    {
+        $document = document::find($id_dokumen);
+        // dd($document);
+        return view('himpunan.dokumenHimpunan.docDetail', compact('document'));
+    }
 }

@@ -51,7 +51,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <div class="nav-item">
                             <a class="nav-link d-flex flex-col align-items-center">
                                 <i class="nav-icon fa fa-circle"></i>
                                 <p>Kelola Dokumen</p>
@@ -66,7 +66,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </div>
                     </ul>
                 </li>
             </ul>

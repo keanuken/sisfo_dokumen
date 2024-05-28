@@ -81,7 +81,8 @@
                             <td class="text-center">Versi {{ $doc->versi_dokumen }}</td>
                             <td class="text-center">{{ $doc->status }}</td>
                             <td class="text-center">
-                                <a href="https://{{ $doc->tautan_dokumen }}" target="_blank" class="btn btn-warning">
+                                <a href="{{ route('admin.dokumen.docDetail', $doc->id_dokumen) }}"
+                                    class="btn btn-warning">
                                     <i class="fas fa-eye text-white"></i>
                                 </a>
                             </td>

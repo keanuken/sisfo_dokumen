@@ -1,125 +1,117 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{{ asset('css/globals.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styleguide.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style_footer.css') }}">
-</head>
+@section('title', 'Home')
+@include('component.header')
+
+<style>
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(139, 139, 139, 0.3);
+        /* Warna hitam dengan transparansi 50% */
+        z-index: 1;
+    }
+
+    .jumbotron .container {
+        z-index: 2;
+    }
+</style>
 
 <body>
-    <div class="desktop">
-        <div class="div">
-            <div class="overlap">
-                <div class="banner">
-                    <div class="overlap-group">
-                        <img class="carousel" src="assets/carousel.png" />
-                        <div class="frame">
-                            <a href="" class="group">
-                                <div class="text-wrapper">Masuk</div>
-                            </a>
-                        </div>
-                        <div class="overlap-2">
-                            <p class="p">Selamat datang di website SIMADOK!</p>
-                            <p class="text-wrapper-2">Masuk terlebih dahulu untuk melanjutkan.</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-wrapper-3">Selamat datang di dashboard SIMADOK!</p>
-            </div>
-            <div class="overlap-3">
-                <div class="kategori">
-                    <div class="overlap-4">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4">Dokumen 1</div>
-                        </div>
-                        <div class="primary-button">
-                            <div class="primary-button-2">Lihat Selengkapnya</div>
-                        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="{{ url('/') }}" class="navbar-brand mx-5">
+            <img class="group-2" width="auto" height="50" src="{{ asset('assets/group-3-2.png') }}" />
+        </a>
+        <button class="navbar-toggler ml-auto py-2 mt-4" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto w-75 d-flex justify-content-around">
+                <li class="nav-item active text-bold">
+                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                </li>
+                <li class="nav-item active text-bold">
+                    <a class="nav-link" href="#">Hubungi</a>
+                </li>
+                <li class="nav-item active text-bold">
+                    <a class="nav-link" href="{{ route('dokumen-publik') }}">Dokumen</a>
+                </li>
+                <li class="nav-item active text-bold">
+                    <a href="{{ route('beranda.login') }}" class="btn text-white btn-warning" type="button">
+                        <span class="mr-2"><i class="fa fa-user"></i></span>
+                        Login
+                    </a>
+                </li>
+                <div class="dropdown">
+                    <button class="btn text-white btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2"><i class="fa fa-tachometer-alt"></i></span>
+                        Dashboard
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('admin.login') }}">Dashboard Admin</a>
+                        <a class="dropdown-item" href="{{ route('himpunan.loginHimpunan') }}">Dashboard Himpunan</a>
                     </div>
                 </div>
-                <img class="mask-group" src="assets/image-2.png" />
-            </div>
-            <div class="overlap-5">
-                <div class="kategori">
-                    <div class="overlap-6">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4">Dokumen 2</div>
-                        </div>
-                        <div class="primary-button">
-                            <div class="primary-button-2">Lihat Selengkapnya</div>
-                        </div>
-
-                    </div>
-                </div>
-                <img class="mask-group" src="assets/image-4.png" />
-            </div>
-            <div class="overlap-7">
-                <div class="kategori">
-                    <div class="overlap-8">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4">Dokumen 3</div>
-                        </div>
-                        <div class="primary-button">
-                            <div class="primary-button-2">Lihat Selengkapnya</div>
-                        </div>
-
-                    </div>
-                </div>
-                <img class="mask-group" src="assets/image-6.png" />
-            </div>
-            <div class="overlap-9">
-                <div class="kategori">
-                    <div class="overlap-10">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4">Dokumen 4</div>
-                        </div>
-                        <div class="primary-button">
-                            <div class="primary-button-2">Lihat Selengkapnya</div>
-                        </div>
-
-                    </div>
-                </div>
-                <img class="mask-group" src="assets/image-3.png" />
-            </div>
-            <div class="overlap-11">
-                <div class="kategori">
-                    <div class="overlap-12">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4">Dokumen 5</div>
-                        </div>
-                        <div class="primary-button">
-                            <div class="primary-button-2">Lihat Selengkapnya</div>
-                        </div>
-
-                    </div>
-                </div>
-                <img class="mask-group" src="assets/image-5.png" />
-            </div>
-            <div class="overlap-13">
-                <div class="kategori">
-                    <div class="overlap-14">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4">Dokumen 6</div>
-                        </div>
-                        <div class="primary-button">
-                            <div class="primary-button-2">Lihat Selengkapnya</div>
-                        </div>
-
-                    </div>
-                </div>
-                <img class="mask-group" src="assets/image-7.png" />
-            </div>
-            @include('component.header-home')
+            </ul>
         </div>
-    </div>
-    @include('component.footer-home')
-    </div>
+    </nav>
+
+    <section class="content">
+        <div class="jumbotron position-relative"
+            style="background: url({{ asset('assets/carousel.png') }}) no-repeat center center; background-size: cover; height: 40em;">
+            <div class="overlay"></div>
+            <div class="container text-white for-about d-flex flex-column align-items-center position-relative mt-5">
+                <img src="{{ asset('assets/group-2.png') }}" height="auto" width="600px" alt="Deskripsi gambar"
+                    class="img-fluid mb-3">
+                <h1 class="mt-5">Selamat datang di website SIMADOK!</h1>
+            </div>
+        </div>
+
+        <div class="container-fluid p-0 m-0 min-vh-100">
+            <div class="row">
+                <?php
+                $cekPublik = $documentPublik->count();
+                ?>
+                <div class="col-12">
+                    <h1 class="text-center text-bold ml-5 my-5">Dokumen</h1>
+                    {{-- card prodi --}}
+                    @if ($cekPublik > 0)
+                        <div class="d-flex flex-column flex-lg-row flex-wrap justify-content-around align-items-center">
+                            @foreach ($documentPublik->take(6) as $publik)
+                                <div class="card m-5" style="width: 18rem;">
+                                    <div class="card-img-top bg-info d-flex justify-content-center align-items-center"
+                                        style="height: 10em">
+                                        <h1><i class="fa fa-file"></i></h1>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center">
+                                        <h5 class="card-title text-bold text-center my-3">{{ $publik->nama_dokumen }}
+                                        </h5>
+                                        <a href="{{ route('docDetail', $publik->id_dokumen) }}"
+                                            class="btn btn-outline-primary">
+                                            Lihat Selengkapnya
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <h1 class="text-center ml-5 my-5">Belum ada dokumen yang di unggah.</h1>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @include('component.footer')
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 

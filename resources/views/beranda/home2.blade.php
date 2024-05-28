@@ -7,24 +7,13 @@
     <link rel="stylesheet" href="{{ asset('css/styleguide.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style_footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="header">
-        <a href="home">
-            <img class="img" src="{{ asset('assets/group-4.png')}}" />
-            <div class="auto-layout">
-                <a href="" class="text-wrapper-5">Beranda</a>
-                <a href="footer" class="text-wrapper-6">Kontak</a>
-                <div class="group-wrapper">
-                    <div class="group-2">
-                        <span class="d-flex align-items-center">
-                            <img class="profile" src="{{ asset('assets/profile.svg')}}" />
-                            <a href="{{ route('beranda.logoutBeranda')}}" class="text-wrapper-7">Logout</a>
-                    </div>
-                </div>
-            </div>
-    </div>    
+<body>  
     <div class="desktop">
         <div class="div">
             <div class="overlap">
@@ -40,6 +29,7 @@
                 <p class="text-wrapper-3">Selamat datang di dashboard SIMADOK!</p>
             </div>
         </div>
+        @include('beranda.layouts.header')
     </div>
     @include('component.footer-home')
     </div>

@@ -28,7 +28,7 @@ class HomeController extends Controller
             ->where('table_sub_kategori.id_kategori', 1)
             ->get();
 
-        return view('card', compact('subKategoriProdi', 'subKategoriHimpunan'));
+        return view('beranda.subProdi', compact('subKategoriProdi', 'subKategoriHimpunan'));
     }
 
     // public function index_dokumenHimpunan()

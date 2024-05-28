@@ -56,8 +56,8 @@ class AuthController extends Controller
             } elseif (Auth::user()->roles == 'mahasiswa') {
                 return redirect()->intended('himpunan/dashboard');
             }
-             elseif (Auth::user()->roles == 'dosen') {
-                return redirect()->intended('dosen/dashboard');
+            elseif (in_array(Auth::user()->roles, ['administrator', 'kaprodi', 'mahasiswa', 'dosen'])) {
+                return redirect()->intended('/beranda');
             }
         }
 
@@ -76,6 +76,44 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'Email atau password anda salah.',
         ])->onlyInput('email');
+    }
+
+    public function loginBeranda(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            // $request->session('')->regenerate();
+
+            // return redirect()->intended('admin');
+            if (in_array(Auth::user()->roles, ['administrator', 'kaprodi', 'mahasiswa', 'dosen'])) {
+                return redirect()->intended('beranda');
+            }
+        }
+
+        // if (Auth::attempt($credentials)) {
+        //     $request->session('')->regenerate();
+        //     // return redirect()->intended('admin/login');
+        //     if (Auth::user()->roles == 'administrator' && 'kaprodi') {
+        //         return redirect()->intended('admin');
+        //     }
+        //     // masih testing, nanti sesuaikan intended ke page login khusus dosen & mhs
+        //     elseif (Auth::user()->level == 'dosen' && 'mahasiswa') {
+        //         return redirect()->intended('admin/login');
+        //     }
+        // }
+
+        return back()->withErrors([
+            'email' => 'Email atau password anda salah.',
+        ])->onlyInput('email');
+    }
+    public function logoutBeranda()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 
     public function logout()

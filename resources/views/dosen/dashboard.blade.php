@@ -3,6 +3,8 @@
 
 @include('dosen.layouts.header')
 
+@include('dosen.layouts.sidebar')
+
 @section('content')
     <section class="content-header">
         <?php $authController = new App\Http\Controllers\AuthController(); ?>

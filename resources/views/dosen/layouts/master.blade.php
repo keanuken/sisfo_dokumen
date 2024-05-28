@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@include('himpunan.layouts.header')
+@include('dosen.layouts.header')
 
 <body class="sidebar-mini layout-fixed">
     <div class="wrapper h-auto">
         <!-- Navbar -->
-        @include('himpunan.layouts.navbar')
+        @include('dosen.layouts.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('himpunan.layouts.sidebar')
+        @include('dosen.layouts.sidebar')
         <!-- end sidebar -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -18,7 +18,7 @@
             @yield('content')
         </div>
         <!-- /.content-wrapper -->
-        @include('himpunan.layouts.footer')
+        @include('dosen.layouts.footer')
     </div>
     <!-- ./wrapper -->
 

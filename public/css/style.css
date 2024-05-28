@@ -851,5 +851,20 @@ a {
   margin-top: 10px;
 }
 
+.frame {
+  position: relative;
+  width: 930px;
+  height: 232px;
+  background-color: #e7efffa6;
+  border-radius: 30px;
+  overflow: hidden;
+}
 
-
+.frame .group {
+  position: absolute;
+  width: 775px;
+  height: 168px;
+  top: 20px;
+  left: 78px;
+  object-fit: cover;
+}

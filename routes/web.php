@@ -21,8 +21,13 @@ use App\Http\Controllers\DokumenHimpunanController;
 Route::get('/home', function () {
     return view('home');
 });
+
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/home2', function () {
+    return view('home2');
 });
 
 // PREFIX ADMIN

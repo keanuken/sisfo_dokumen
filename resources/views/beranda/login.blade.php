@@ -11,7 +11,7 @@
         <div class="div">
             <img class="group" src="{{ asset('assets/group-3.png') }}" />
             <div class="overlap-group">
-                <form action="{{ route('admin.postLogin') }}" method="POST">
+                <form action="{{ route('beranda.loginBeranda') }}" method="POST">
                     {{ csrf_field() }}
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">

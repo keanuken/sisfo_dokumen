@@ -1,7 +1,7 @@
-@extends('himpunan.layouts.master')
+@extends('admin.layouts.master')
 @section('title', 'Dokumen Himpunan')
 
-@include('himpunan.layouts.header')
+@include('admin.layouts.header')
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -25,7 +25,7 @@
     </style>
 @endsection
 
-@include('himpunan.layouts.sidebar')
+@include('admin.layouts.sidebar')
 
 @section('content')
     <section class="content-header">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('himpunan.dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Data Dokumen Himpunan</li>
                     </ol>
                 </div>

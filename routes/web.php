@@ -6,6 +6,7 @@ use App\Http\Controllers\DokumenAdminController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DokumenHimpunanController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,14 @@ use App\Http\Controllers\DokumenHimpunanController;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/card', [HomeController::class, 'card'])->name('card');
+
+Route::get('/table', [HomeController::class, 'index_dokumenProdi'])->name('table');
+
 Route::get('/login', function () {
     return view('login');
 });
@@ -31,8 +37,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function () {
         return view('admin.home-admin');
     })->name('home');
-
-
 
     // view dashboard admin
     //fungsi middleware untuk restricted page harus login
@@ -78,7 +82,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // PREFIX HIMPUNAN
 Route::prefix('himpunan')->name('himpunan.')->group(function () {
-    // view dashboard himpunan
+    // view home
+    Route::get('/', function () {
+        return view('admin.home-admin');
+    })->name('home');
     //fungsi middleware untuk restricted page harus login
     Route::get('/dashboard', function () {
         return view('himpunan.dashboard');

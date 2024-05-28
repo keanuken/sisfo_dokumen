@@ -94,6 +94,7 @@
             </form>
         </div>
     </section>
+@endsection
 
 @section('script')
     {{-- jquery --}}
@@ -120,6 +121,4 @@
             });
         });
     </script>
-@endsection
-
 @endsection

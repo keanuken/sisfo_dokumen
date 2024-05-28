@@ -31,7 +31,7 @@ class RedirectIfAuthenticated
                     'message' => 'UPS. MOHON MAAF ANDA TIDAK BISA MENGAKSES HALAMAN INI. SILAHKAN REFRESH HALAMAN UNTUK KEMBALI :)'
                 ], 403);
 
-                return redirect('/admin/login');
+                // return redirect('/admin/login');
             }
         }
 

@@ -1,4 +1,4 @@
-.desktop .header {
+.header {
     display: flex;
     width: 1440px;
     height: 90px;
@@ -11,5 +11,4 @@
     background-color: #fff;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    
-  }
+}

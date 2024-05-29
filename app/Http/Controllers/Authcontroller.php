@@ -94,7 +94,7 @@ class AuthController extends Controller
     {
         if (Auth::check()) {
             $userName = Auth::user()->name;
-            return "Selamat Datang " . $userName;
+            return $userName;
         }
     }
 

@@ -99,6 +99,12 @@
                                 <p>Tambah Akun</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.listUser') }}" class="nav-link d-flex flex-col align-items-center">
+                                <i class="fa fa-list nav-icon"></i>
+                                <p>Lihat List Akun</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </ul>

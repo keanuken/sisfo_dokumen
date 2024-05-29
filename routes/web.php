@@ -53,8 +53,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.dashboard');
     })->name('dashboard')->middleware('admin');
 
+    // Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard')->middleware('admin');
+
     //view register akun
     Route::get('/tambah-akun', [AdminController::class, 'tambah'])->name('tambah-user')->middleware('admin');
+
+    // view list akun
+    Route::get('/list-akun', [AdminController::class, 'readUser'])->name('listUser')->middleware('admin');
+    // view edit akun
+    Route::get('/{id}/edit', [AdminController::class, 'editUser'])->name('editUser')->middleware('admin');
+    Route::put('/{id}/update', [AdminController::class, 'updateUser'])->name('updateUser')->middleware('admin');
+    Route::delete('/{id}/delete', [AdminController::class, 'deleteUser'])->name('deleteUser')->middleware('admin');
 
     //view tambah dokumen
     Route::get('/add/dokumen/prodi', [DokumenAdminController::class, 'prodi'])->name('dokumen-prodi')->middleware('admin');

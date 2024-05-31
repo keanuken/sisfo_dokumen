@@ -26,12 +26,15 @@ Route::get('/{id_dokumen}/dokumen-detail', [HomeController::class, 'detail'])->n
 
 // prefix beranda
 Route::prefix('beranda')->name('beranda.')->group(function () {
-    Route::get('/', function () {
-        return view('beranda.home2');
-    });
-    
-    
-    Route::get('/subProdi', [HomeController::class, 'card'])->name('subProdi');
+    Route::get('/', [HomeController::class, 'cardBeranda'])->middleware('beranda');
+
+    Route::get('/dokumen-publik', [HomeController::class, 'indexPublik'])->name('docPublik')->middleware('beranda');
+    Route::get('/dokumen-private', [HomeController::class, 'indexPrivate'])->name('docPrivate')->middleware('beranda');
+    Route::get('/{id_dokumen}/dokumen-detail', [HomeController::class, 'detailDokumen'])->name('docDetail')->middleware('beranda');
+
+    Route::get('/login', function () {
+        return view('beranda.login');
+    })->name('login')->middleware('guest');
 
     Route::post('/post-login', [AuthController::class, 'loginBeranda'])->name('loginBeranda');
     Route::get('/logout', [AuthController::class, 'logoutBeranda'])->name('logoutBeranda')->middleware('beranda');

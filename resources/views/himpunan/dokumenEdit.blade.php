@@ -98,8 +98,8 @@
                             <select name="status" id="status" class="js-states form-control"
                                 style="width: 100% !important">
                                 <option><span>{{ $document->status }}</span></option>
-                                <option value="aktif">Aktif</option>
-                                <option value="tidak aktif">Tidak Aktif</option>
+                                <option value="publik">Publik</option>
+                                <option value="private">Private</option>
                             </select>
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-outline-secondary" id="clear-status">

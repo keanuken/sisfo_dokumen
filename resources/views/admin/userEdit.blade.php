@@ -30,41 +30,33 @@
 
     <section class="content">
         <div class="card card-primary mt-10">
-            <div class="card-header">
-                <h3 class="card-title">Register Akun</h3>
-            </div>
-            <!-- /.card-header -->
+            {{-- alert --}}
+            @if (session('error'))
+                <div class="alert alert-danger my-2 text-bold">
+                    {{ session('error') }}
+                </div>
+            @endif
             <!-- form start -->
-            <form action="store-register" method="POST">
+            <form action="{{ route('admin.updateUser', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                {{-- alert --}}
-                @if (session('success'))
-                    <div class="alert alert-success my-2 text-bold">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-danger my-2 text-bold">
-                        {{ session('error') }}
-                    </div>
-                @endif
-                {{-- end alert --}}
+                @method('PUT')
+                <div class="card-header">
+                    User {{ $user->name }}
+                </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="name" class="form-control" name="name" placeholder="Masukkan nama">
+                        <label for="name">Nama Akun</label>
+                        <input type="text" class="form-control" name="name" value="{{ $user->name }}">
                     </div>
-
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Masukkan email">
+                        <label for="name">Email akun</label>
+                        <input type="text" class="form-control" name="email" value="{{ $user->email }}">
                     </div>
-
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <div class="input-group">
-                            <input type="password" name="password" id="password" class="form-control"
-                                aria-describedby="passwordHelpBlock" placeholder="Password">
+                            <input type="password" value="{{ $user->password }}" name="password" id="password"
+                                class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password">
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" type="button" id="togglePassword">
                                     <i class="fas fa-eye"></i>
@@ -73,21 +65,17 @@
                         </div>
                         <p class="text-info">*harap memasukkan password minimal 8 karakter</p>
                     </div>
-
                     <div class="form-group">
                         <label>Role Akun</label>
                         <select name="roles" id="roles" class="js-states form-control" style="width: 100% !important">
-                            <option></option>
+                            <option value="{{ $user->roles }}">{{ $user->roles }}</option>
                             <option value="administrator">Administrator</option>
                             <option value="kaprodi">Ketua Program Studi</option>
                             <option value="dosen">Dosen</option>
                             <option value="mahasiswa">Mahasiswa</option>
                         </select>
                     </div>
-
                 </div>
-                <!-- /.card-body -->
-
                 <div class="card-footer bg-white">
                     <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                 </div>

@@ -62,7 +62,7 @@ class AuthController extends Controller
             // $request->session('')->regenerate();
 
             // return redirect()->intended('admin');
-            if (in_array(Auth::user()->roles, ['administrator', 'kaprodi', 'mahasiswa', 'dosen'])) {
+            if (in_array(Auth::user()->roles, ['administrator', 'kaprodi', 'dosen'])) {
                 return redirect()->intended('beranda');
             }
         }

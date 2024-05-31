@@ -36,6 +36,7 @@ Route::prefix('beranda')->name('beranda.')->group(function () {
         return view('beranda.home2');
     });
     
+    
     Route::get('/subProdi', [HomeController::class, 'card'])->name('subProdi');
 
     Route::post('/post-login', [AuthController::class, 'loginBeranda'])->name('loginBeranda');

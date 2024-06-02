@@ -28,10 +28,10 @@ class RedirectIfAuthenticated
                 $request->session()->invalidate(); //menghapus session
 
                 return response()->json([
-                    'message' => 'UPS. MOHON MAAF ANDA TIDAK BISA MENGAKSES HALAMAN INI SEBELUM LOGIN. SILAHKAN REFRESH HALAMAN UNTUK KEMBALI :)'
+                    'message' => 'UPS. DEMI KEAMANAN SILAHKAN REFRESH HALAMAN UNTUK KEMBALI KE HALAMAN LOGIN :)'
                 ], 403);
 
-                return redirect('/admin/login');
+                // return redirect('/admin/login');
             }
         }
 

@@ -128,6 +128,8 @@
 
                     <div class="form-group">
                         <label for="tautan">Tautan Dokumen <span class="text-danger">*</span></label>
+                        <p class="text-info">*masukkan tautan atau link dokumen tanpa https:// <br>(contoh:
+                            drive.google.com/abcd)</p>
                         <input type="text" class="form-control" name="tautan" placeholder="Masukkan tautan dokumen">
                     </div>
 
@@ -137,8 +139,8 @@
                             <select name="status" id="status" class="js-states form-control"
                                 style="width: 100% !important">
                                 <option></option>
-                                <option value="aktif">Aktif</option>
-                                <option value="tidak aktif">Tidak Aktif</option>
+                                <option value="publik">Publik</option>
+                                <option value="private">Private</option>
                             </select>
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-outline-secondary" id="clear-status">
@@ -235,6 +237,5 @@
             $('#subSubKategori').val(null).trigger('change');
         });
     </script>
-
 @endsection
 @endsection

@@ -47,13 +47,22 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        return back()->withErrors([
+            'email' => 'Email atau password anda salah.',
+        ])->onlyInput('email');
+    }
+
+    public function loginHimpunan(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
+
         if (Auth::attempt($credentials)) {
             // $request->session('')->regenerate();
 
-            // return redirect()->intended('admin');
-            if (Auth::user()->roles == 'administrator' || Auth::user()->roles == 'kaprodi') {
-                return redirect()->intended('admin/dashboard');
-            } elseif (Auth::user()->roles == 'mahasiswa') {
+            if (Auth::user()->roles == 'mahasiswa') {
                 return redirect()->intended('himpunan/dashboard');
             }
         }
@@ -75,6 +84,33 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
+    public function loginBeranda(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            // $request->session('')->regenerate();
+
+            // return redirect()->intended('admin');
+            if (in_array(Auth::user()->roles, ['administrator', 'kaprodi', 'dosen'])) {
+                return redirect()->intended('beranda');
+            }
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau password anda salah.',
+        ])->onlyInput('email');
+    }
+
+    public function logoutBeranda()
+    {
+        Auth::logout();
+        return redirect('beranda/login');
+    }
+
     public function logout()
     {
         Auth::logout();
@@ -85,7 +121,15 @@ class AuthController extends Controller
     {
         if (Auth::check()) {
             $userName = Auth::user()->name;
-            return "Selamat Datang, " . $userName;
+            return $userName;
+        }
+    }
+
+    public function ekoshow()
+    {
+        if (Auth::check()) {
+            $userName = Auth::user()->name;
+            return $userName;
         }
     }
 }

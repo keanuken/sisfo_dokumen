@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@section('title', 'Login Himpunan')
+@section('title', 'Login')
 @include('admin.layouts.header')
 
 <body>
@@ -41,7 +41,7 @@
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
         <div class="row w-100">
             <div class="col-md-8 col-lg-10 mx-auto">
-                <form action="{{ route('admin.postLogin') }}" method="POST">
+                <form action="{{ route('beranda.loginBeranda') }}" method="POST">
                     {{ csrf_field() }}
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
@@ -86,9 +86,10 @@
             </div>
         </div>
     </div>
-    @include('component.footer')
-    </div>
+    @include('beranda.layouts.footer')
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         document.getElementById('togglePassword').addEventListener('click', function() {
             var passwordField = document.getElementById('password');
@@ -102,8 +103,6 @@
             }
         });
     </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

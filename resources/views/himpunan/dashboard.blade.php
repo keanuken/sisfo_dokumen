@@ -19,10 +19,29 @@
 
     <?php
     $jumlahUser = \App\Models\User::where('roles', 'mahasiswa')->count();
-    $himpunanDoc = \App\Models\document::select('sub.nama_subKategori', \DB::raw('count(*) as total'))->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->where('kat.id_kategori', 1)->groupBy('sub.nama_subKategori')->get();
-    $himpunan = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->where('kat.id_kategori', 1)->count();
-    $publik = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->where('kat.id_kategori', 1)->where('table_document.status', 'publik')->count();
-    $private = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->where('kat.id_kategori', 1)->where('table_document.status', 'private')->count();
+    $himpunanDoc = \App\Models\document::select('sub.nama_subKategori', \DB::raw('count(*) as total'))
+        ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
+        ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+        ->where('kat.nama_kategori', ['himpunan'])
+        ->groupBy('sub.nama_subKategori')
+        ->get();
+    $himpunan = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
+        ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
+        ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+        ->where('kat.nama_kategori', ['himpunan'])
+        ->count();
+    $publik = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
+        ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
+        ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+        ->where('kat.nama_kategori', ['himpunan'])
+        ->where('table_document.status', 'publik')
+        ->count();
+    $private = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
+        ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
+        ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+        ->where('kat.nama_kategori', ['himpunan'])
+        ->where('table_document.status', 'private')
+        ->count();
     
     // dd($private);
     

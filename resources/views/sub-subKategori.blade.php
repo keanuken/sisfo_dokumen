@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-@section('title', 'Home')
+@section('title', 'Sub Sub Kategori')
 @include('component.header')
 
 <style>
@@ -79,23 +79,24 @@
         <div class="container-fluid p-0 m-0 min-vh-100">
             <div class="row">
                 <?php
-                $cekKategori = $kategori->count();
+                $ceksubSubKategori = $subSubKategori->count();
                 ?>
                 <div class="col-12">
-                    <h1 class="text-center text-bold my-5">Dokumen</h1>
+                    <h1 class="text-center text-bold my-5">Sub Sub Kategori Dokumen</h1>
                     {{-- card prodi --}}
-                    @if ($cekKategori > 0)
+                    @if ($ceksubSubKategori > 0)
                         <div class="d-flex flex-column flex-lg-row flex-wrap justify-content-around align-items-center">
-                            @foreach ($kategori as $kat)
+                            @foreach ($subSubKategori as $subsub)
                                 <div class="card m-5" style="width: 18rem;">
                                     <div class="card-img-top bg-info d-flex justify-content-center align-items-center"
                                         style="height: 10em">
                                         <h1><i class="fa fa-file"></i></h1>
                                     </div>
                                     <div class="card-body d-flex flex-column justify-content-center">
-                                        <h5 class="card-title text-bold text-center my-3">{{ $kat->nama_kategori }}
+                                        <h5 class="card-title text-bold text-center my-3">
+                                            {{ $subsub->nama_subSubKategori }}
                                         </h5>
-                                        <a href="{{ route('sub-kategori', $kat->id_kategori) }}"
+                                        <a href="{{ route('dokumen-sub-publik', $subsub->id_subSubKategori) }}"
                                             class="btn btn-outline-primary">
                                             Lihat Selengkapnya
                                         </a>
@@ -104,7 +105,7 @@
                             @endforeach
                         </div>
                     @else
-                        <h1 class="text-center ml-5 my-5">Belum ada dokumen yang di unggah.</h1>
+                        <h1 class="text-center">Belum ada dokumen yang di unggah.</h1>
                     @endif
                 </div>
             </div>

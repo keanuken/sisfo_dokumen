@@ -14,61 +14,65 @@ class DokumenAdminController extends Controller
     public function prodi()
     {
         // $subKategori = subKategori::all();
-        $subKategori = subKategori::join(
-            'table_kategori as kat',
-            'table_sub_kategori.id_kategori',
-            '=',
-            'kat.id_kategori'
-        )
-            ->where('table_sub_kategori.id_kategori', 2)
-            ->get();
-        $subSubKategori = subSubKategori::join(
-            'table_sub_kategori as sub',
-            'table_sub_sub_kategori.id_subKategori',
-            '=',
-            'sub.id_subKategori'
-        )
-            ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 2)
-            ->get();
+        // $subKategori = subKategori::join(
+        //     'table_kategori as kat',
+        //     'table_sub_kategori.id_kategori',
+        //     '=',
+        //     'kat.id_kategori'
+        // )
+        //     ->where('table_sub_kategori.id_kategori', 2)
+        //     ->get();
+        // $subSubKategori = subSubKategori::join(
+        //     'table_sub_kategori as sub',
+        //     'table_sub_sub_kategori.id_subKategori',
+        //     '=',
+        //     'sub.id_subKategori'
+        // )
+        //     ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+        //     ->where('kat.id_kategori', 2)
+        //     ->get();
+
+        $kategori = kategori::all();
+        $subKategori = subKategori::all();
+        $subSubKategori = subSubKategori::all();
 
         return view(
             "admin.dokumen-prodi",
-            compact("subKategori", "subSubKategori")
+            compact('kategori', "subKategori", "subSubKategori")
         );
     }
 
-    public function himpunan()
-    {
-        $subKategori = subKategori::join(
-            'table_kategori as kat',
-            'table_sub_kategori.id_kategori',
-            '=',
-            'kat.id_kategori'
-        )
-            ->where('table_sub_kategori.id_kategori', 1)
-            ->get();
-        $subSubKategori = subSubKategori::join(
-            'table_sub_kategori as sub',
-            'table_sub_sub_kategori.id_subKategori',
-            '=',
-            'sub.id_subKategori'
-        )
-            ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 1)
-            ->get();
-        return view(
-            "admin.dokumen-himpunan",
-            compact("subKategori", "subSubKategori")
-        );
-    }
+    // public function himpunan()
+    // {
+    //     $subKategori = subKategori::join(
+    //         'table_kategori as kat',
+    //         'table_sub_kategori.id_kategori',
+    //         '=',
+    //         'kat.id_kategori'
+    //     )
+    //         ->where('table_sub_kategori.id_kategori', 1)
+    //         ->get();
+    //     $subSubKategori = subSubKategori::join(
+    //         'table_sub_kategori as sub',
+    //         'table_sub_sub_kategori.id_subKategori',
+    //         '=',
+    //         'sub.id_subKategori'
+    //     )
+    //         ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+    //         ->where('kat.id_kategori', 1)
+    //         ->get();
+    //     return view(
+    //         "admin.dokumen-himpunan",
+    //         compact("subKategori", "subSubKategori")
+    //     );
+    // }
 
     public function index_dokumenHimpunan()
     {
         $document = document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
             ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
             ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 1)
+            ->where('kat.nama_kategori', ['himpunan'])
             ->get();
         // dd($document);
         return view(
@@ -82,7 +86,7 @@ class DokumenAdminController extends Controller
         $document = document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
             ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
             ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 2)
+            ->whereNotIn('kat.nama_kategori', ['himpunan'])
             ->get();
         // dd($document);
         return view(

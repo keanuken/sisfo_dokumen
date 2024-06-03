@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@section('title', 'Dokumen {{ $document->nama_dokumen }}')
+@section('title', 'Detail Dokumen')
 @include('beranda.layouts.header')
 
 <body>

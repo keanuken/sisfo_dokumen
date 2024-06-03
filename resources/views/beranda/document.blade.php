@@ -64,7 +64,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($documentPrivate as $doc)
+                    @foreach ($document as $doc)
                         <tr>
                             <td class="text-center"></td>
                             <td class="text-center text-uppercase">{{ $doc->nama_dokumen }}</td>

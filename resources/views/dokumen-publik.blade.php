@@ -77,7 +77,7 @@
             <table id="example" class="table table-responsive table-striped my-4" style="width:100%">
                 <thead>
                     <tr>
-                        <th class="text-center">No</th>
+                        <th class="åtext-center">No</th>
                         <th class="text-center">Nama Dokumen</th>
                         <th class="text-center">Judul Dokumen</th>
                         <th class="text-center">Nama Kategori</th>

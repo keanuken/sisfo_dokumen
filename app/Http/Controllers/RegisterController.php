@@ -15,7 +15,7 @@ class RegisterController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required|min:8',
-            'roles' => 'required',
+            'roles' => 'requred',
         ]);
 
         $input = $request->all();

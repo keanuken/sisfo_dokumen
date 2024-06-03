@@ -17,7 +17,7 @@ class DokumenHimpunanController extends Controller
             '=',
             'kat.id_kategori'
         )
-            ->where('table_sub_kategori.id_kategori', 1)
+            ->where('kat.nama_kategori', ['himpunan'])
             ->get();
         $subSubKategori = subSubKategori::join(
             'table_sub_kategori as sub',
@@ -26,7 +26,7 @@ class DokumenHimpunanController extends Controller
             'sub.id_subKategori'
         )
             ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 1)
+            ->where('kat.nama_kategori', ['himpunan'])
             ->get();
         return view(
             "himpunan.dokumen-himpunan",
@@ -39,7 +39,7 @@ class DokumenHimpunanController extends Controller
         $document = document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
             ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
             ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
-            ->where('kat.id_kategori', 1)
+            ->where('kat.nama_kategori', ['himpunan'])
             ->get();
         // dd($document);
         return view(

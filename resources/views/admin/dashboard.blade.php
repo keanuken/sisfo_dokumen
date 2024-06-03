@@ -24,8 +24,16 @@
     $jumlahDocument = \App\Models\document::count(); // Misalnya menjumlahkan semua ID document
     $publik = \App\Models\document::where('status', 'publik')->count();
     $private = \App\Models\document::where('status', 'private')->count();
-    $prodi = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->where('kat.id_kategori', 2)->count();
-    $himpunan = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->where('kat.id_kategori', 1)->count();
+    $totalKategori = \App\Models\kategori::count();
+    $totalSubKategori = \App\Models\subKategori::count();
+    $totalsubSubKategori = \App\Models\subSubKategori::count();
+    $himpunan = \App\Models\document::select('table_document.*', 'sub.*', 'kat.nama_kategori')
+        ->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')
+        ->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')
+        ->where('kat.nama_kategori', ['himpunan'])
+        ->count();
+    $allDocs = \App\Models\document::select('kat.nama_kategori', \DB::raw('count(*) as total'))->join('table_sub_kategori as sub', 'sub.id_subKategori', '=', 'table_document.id_subKategori')->join('table_kategori as kat', 'sub.id_kategori', '=', 'kat.id_kategori')->groupBy('kat.nama_kategori')->get();
+    $jumlahAdministrator = \App\Models\User::where('roles', 'administrator')->count();
     ?>
 
     <section class="content mt-2 w-auto">
@@ -73,13 +81,10 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
-                            <h5>Jumlah Administrator Terdaftar</h5>
+                            <h5>Jumlah Administrator</h5>
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <?php
-                                    $jumlahAdministrator = \App\Models\User::where('roles', 'administrator')->count();
-                                    ?>
                                     @if ($jumlahAdministrator > 0)
                                         <h3>{{ $jumlahAdministrator }}</h3>
                                     @else
@@ -89,6 +94,62 @@
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <h5>Jumlah Kategori</h5>
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    @if ($totalKategori > 0)
+                                        <h3>{{ $totalKategori }}</h3>
+                                    @else
+                                        <h3>0</h3>
+                                    @endif
+
+                                    <p>Total Kategori</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-pie"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <h5>Jumlah Sub Kategori</h5>
+                            <!-- small box -->
+                            <div class="small-box bg-purple">
+                                <div class="inner">
+                                    @if ($totalSubKategori > 0)
+                                        <h3>{{ $totalSubKategori }}</h3>
+                                    @else
+                                        <h3>0</h3>
+                                    @endif
+
+                                    <p>Total Kategori</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-pie"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <h5>Jumlah Sub Sub Kategori</h5>
+                            <!-- small box -->
+                            <div class="small-box bg-primary">
+                                <div class="inner">
+                                    @if ($totalsubSubKategori > 0)
+                                        <h3>{{ $totalsubSubKategori }}</h3>
+                                    @else
+                                        <h3>0</h3>
+                                    @endif
+
+                                    <p>Total Kategori</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-pie"></i>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +177,7 @@
                         <div class="col-md-6">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Jumlah Kategori Dokumen</h3>
+                                    <h3 class="card-title">Jumlah Dokumen Berdasarkan Kategori</h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                             <i class="fas fa-minus"></i>
@@ -127,7 +188,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="dokumenKategori"
+                                    <canvas id="subKategoriChart"
                                         style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                                 </div>
                             </div>
@@ -160,14 +221,16 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var ctx = document.getElementById('dokumenKategori').getContext('2d');
-            var donutChart = new Chart(ctx, {
+            var ctx = document.getElementById('subKategoriChart').getContext('2d');
+            var subKategoriChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: ['Dokumen Prodi', 'Dokumen Himpunan'],
+                    labels: {!! json_encode($allDocs->pluck('nama_kategori')) !!},
                     datasets: [{
-                        data: [{{ $prodi }}, {{ $himpunan }}],
-                        backgroundColor: ['#8c03fc', '#fc8403'],
+                        data: {!! json_encode($allDocs->pluck('total')) !!},
+                        backgroundColor: ['#a903fc', '#fc039d', '#fcba03', '#fc03fc', '#03fcf8',
+                            '#f803fc'
+                        ],
                     }]
                 },
                 options: {

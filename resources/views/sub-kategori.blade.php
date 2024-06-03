@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-@section('title', 'Home')
+@section('title', 'Sub Kategori')
 @include('component.header')
 
 <style>
@@ -79,23 +79,23 @@
         <div class="container-fluid p-0 m-0 min-vh-100">
             <div class="row">
                 <?php
-                $cekKategori = $kategori->count();
+                $ceksubKategori = $subKategori->count();
                 ?>
                 <div class="col-12">
-                    <h1 class="text-center text-bold my-5">Dokumen</h1>
+                    <h1 class="text-center text-bold my-5">Sub Kategori Dokumen</h1>
                     {{-- card prodi --}}
-                    @if ($cekKategori > 0)
+                    @if ($ceksubKategori > 0)
                         <div class="d-flex flex-column flex-lg-row flex-wrap justify-content-around align-items-center">
-                            @foreach ($kategori as $kat)
+                            @foreach ($subKategori as $sub)
                                 <div class="card m-5" style="width: 18rem;">
                                     <div class="card-img-top bg-info d-flex justify-content-center align-items-center"
                                         style="height: 10em">
                                         <h1><i class="fa fa-file"></i></h1>
                                     </div>
                                     <div class="card-body d-flex flex-column justify-content-center">
-                                        <h5 class="card-title text-bold text-center my-3">{{ $kat->nama_kategori }}
+                                        <h5 class="card-title text-bold text-center my-3">{{ $sub->nama_subKategori }}
                                         </h5>
-                                        <a href="{{ route('sub-kategori', $kat->id_kategori) }}"
+                                        <a href="{{ route('sub-sub-kategori', $sub->id_subKategori) }}"
                                             class="btn btn-outline-primary">
                                             Lihat Selengkapnya
                                         </a>

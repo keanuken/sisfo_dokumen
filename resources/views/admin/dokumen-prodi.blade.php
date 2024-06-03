@@ -52,6 +52,25 @@
 
                 <div class="card-body">
                     <div class="form-group">
+                        <label>Masukkan Kategori Dokumen <span class="text-danger">*</span></label>
+                        <div class="d-flex flex-col justify-content-beetween">
+                            <select name="kategori" id="kategori" class="js-states form-control"
+                                style="width: 100% !important">
+                                <option></option>
+                                @foreach ($kategori as $kat)
+                                    <option value="{{ $kat->nama_kategori }}">
+                                        {{ $kat->nama_kategori }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary" id="clear-kategori">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label>Masukkan Sub Kategori Dokumen <span class="text-danger">*</span></label>
                         <div class="d-flex flex-col justify-content-beetween">
                             <select name="subKategori" id="subKategori" class="js-states form-control"
@@ -225,6 +244,16 @@
         });
         $('#clear-sub').click(function() {
             $('#subKategori').val(null).trigger('change');
+        });
+    </script>
+    <script>
+        $("#kategori").select2({
+            placeholder: "Pilih kategori dokumen",
+            theme: "bootstrap4",
+            width: 'resolve',
+        });
+        $('#clear-kategori').click(function() {
+            $('#kategori').val(null).trigger('change');
         });
     </script>
     <script>

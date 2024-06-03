@@ -16,17 +16,9 @@
             <li class="nav-item active text-bold">
                 <a class="nav-link" href="#">Hubungi</a>
             </li>
-            <div class="dropdown">
-                <button class="btn text-white btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2"><i class="fa fa-file"></i></span>
-                    Dokumen
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('beranda.docPrivate') }}">Dokumen Private</a>
-                    <a class="dropdown-item" href="{{ route('beranda.docPublik') }}">Dokumen Publik</a>
-                </div>
-            </div>
+            <li class="nav-item active text-bold">
+                <a class="nav-link" href="{{ route('beranda.document') }}">Dokumen</a>
+            </li>
             {{-- <div class="dropdown">
                 <button class="btn text-white btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -26,23 +26,47 @@
 </style>
 
 <body>
-    @include('beranda.layouts.navbar')
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="{{ url('/') }}" class="navbar-brand mx-5">
+            <img class="group-2" width="auto" height="50" src="{{ asset('assets/group-3-2.png') }}" />
+        </a>
+        <button class="navbar-toggler ml-auto py-2 mt-4" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <section class="content-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1>Data Dokumen Publik</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto w-75 d-flex justify-content-around">
+                <li class="nav-item active text-bold">
+                    <a class="nav-link" href="{{ url('/') }}">Beranda</a>
+                </li>
+                <li class="nav-item active text-bold">
+                    <a class="nav-link" href="#">Hubungi</a>
+                </li>
+                <li class="nav-item active text-bold">
+                    <a class="nav-link" href="{{ route('dokumen-publik') }}">Dokumen</a>
+                </li>
+                <li class="nav-item active text-bold">
+                    <a href="{{ route('beranda.login') }}" class="btn text-white btn-warning" type="button">
+                        <span class="mr-2"><i class="fa fa-user"></i></span>
+                        Login
+                    </a>
+                </li>
+                <div class="dropdown">
+                    <button class="btn text-white btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2"><i class="fa fa-tachometer-alt"></i></span>
+                        Dashboard
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('admin.login') }}">Dashboard Admin</a>
+                        <a class="dropdown-item" href="{{ route('himpunan.loginHimpunan') }}">Dashboard Himpunan</a>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('beranda.') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Data Dokumen Publik</li>
-                    </ol>
-                </div>
-            </div>
+            </ul>
         </div>
-    </section>
+    </nav>
 
     <section class="container mt-5">
         <div class="card card-primary">
@@ -53,7 +77,7 @@
             <table id="example" class="table table-responsive table-striped my-4" style="width:100%">
                 <thead>
                     <tr>
-                        <th class="text-center">No</th>
+                        <th class="åtext-center">No</th>
                         <th class="text-center">Nama Dokumen</th>
                         <th class="text-center">Judul Dokumen</th>
                         <th class="text-center">Nama Kategori</th>
@@ -74,7 +98,7 @@
                             <td class="text-center text-uppercase">Versi {{ $doc->versi_dokumen }}</td>
                             <td class="text-center text-uppercase">{{ $doc->status }}</td>
                             <td class="text-center">
-                                <a href="{{ route('beranda.docDetail', $doc->id_dokumen) }}" class="btn btn-warning">
+                                <a href="{{ route('docDetail', $doc->id_dokumen) }}" class="btn btn-warning">
                                     <i class="fas fa-eye text-white"></i>
                                 </a>
                             </td>

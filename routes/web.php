@@ -20,7 +20,11 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'cardHome'])->name('home');
+Route::get('{id_kategori}/sub-kategori', [HomeController::class, 'cardSubKategori'])->name('sub-kategori');
+Route::get('{id_subSubKategori}/dokumen-publik', [HomeController::class, 'subPublik'])->name('dokumen-sub-publik');
+
 Route::get('/dokumen-publik', [HomeController::class, 'homePublik'])->name('dokumen-publik');
+Route::get('{id_subKategori}/sub-sub-kategori', [HomeController::class, 'cardSubSubKategori'])->name('sub-sub-kategori');
 Route::get('/{id_dokumen}/dokumen-detail', [HomeController::class, 'detail'])->name('docDetail');
 
 
@@ -28,8 +32,11 @@ Route::get('/{id_dokumen}/dokumen-detail', [HomeController::class, 'detail'])->n
 Route::prefix('beranda')->name('beranda.')->group(function () {
     Route::get('/', [HomeController::class, 'cardBeranda'])->middleware('beranda');
 
-    Route::get('/dokumen-publik', [HomeController::class, 'indexPublik'])->name('docPublik')->middleware('beranda');
-    Route::get('/dokumen-private', [HomeController::class, 'indexPrivate'])->name('docPrivate')->middleware('beranda');
+    Route::get('{id_kategori}/sub-kategori', [HomeController::class, 'homeSubKategori'])->name('sub-kategori');
+    Route::get('{id_subKategori}/sub-sub-kategori', [HomeController::class, 'homeSubSubKategori'])->name('sub-sub-kategori');
+    Route::get('{id_subSubKategori}/dokumen-sub', [HomeController::class, 'indexSub'])->name('dokumen-sub');
+
+    Route::get('/dokumen', [HomeController::class, 'index'])->name('document')->middleware('beranda');
     Route::get('/{id_dokumen}/dokumen-detail', [HomeController::class, 'detailDokumen'])->name('docDetail')->middleware('beranda');
 
     Route::get('/login', function () {

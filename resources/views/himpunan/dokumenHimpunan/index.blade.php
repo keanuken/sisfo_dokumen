@@ -48,7 +48,7 @@
                 <h3 class="card-title">Data Dokumen</h3>
             </div>
             <!-- /.card-header -->
-            <table id="example" class="table table-responsive table-striped bg-info" style="width:100%">
+            <table id="example" class="table table-responsive table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th class="text-center">No</th>

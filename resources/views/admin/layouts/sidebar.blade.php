@@ -34,14 +34,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a class="nav-link d-flex flex-col align-items-center">
+                            <a class="nav-link d-flex flex-col align-items-center"
+                                href="{{ route('admin.dokumen-prodi') }}">
                                 <i class="nav-icon fa fa-plus"></i>
                                 <p>
                                     Tambah Dokumen
                                 </p>
-                                <i class="fas fa-angle-left right"></i>
+                                {{-- <i class="fas fa-angle-left right"></i> --}}
                             </a>
-                            <ul class="nav nav-treeview">
+                            {{-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.dokumen-prodi') }}"
                                         class="nav-link d-flex flex-col align-items-center">
@@ -56,7 +57,7 @@
                                         <p>Himpunan</p>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link d-flex flex-col align-items-center">
